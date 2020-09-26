@@ -18,5 +18,4 @@ public class EntityManagerRepository {
         }
         return entityManager;
     }
-
 }
