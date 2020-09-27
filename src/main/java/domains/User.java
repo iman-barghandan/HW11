@@ -20,10 +20,12 @@ public class User {
     private Date birthDay;
     @OneToMany(cascade = CascadeType.ALL , orphanRemoval = true)
     private List<Article> articleList = new ArrayList<>();
-
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "fk_role")
     private Role role;
+    @OneToOne(cascade = CascadeType.ALL , orphanRemoval = true)
+    @JoinColumn(name = "fk_address")
+    private Address address;
 
 
     public User() {

@@ -4,7 +4,6 @@ import entityManagerFactory.EntityManagerRepository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceException;
-import javax.persistence.RollbackException;
 import javax.persistence.TypedQuery;
 import java.util.List;
 

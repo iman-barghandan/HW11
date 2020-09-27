@@ -11,6 +11,7 @@
         <class>domains.Category</class>
         <class>domains.Tag</class>
         <class>domains.Role</class>
+        <class>domains.Address</class>
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect"/>
