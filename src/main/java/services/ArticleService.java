@@ -2,11 +2,15 @@ package services;
 
 import domains.Article;
 import repositories.ArticleRepositoryDAO;
+import repositories.CategotyRepositoryDAO;
+import repositories.UserRepositoryDAO;
 
 import java.util.Date;
 
 public class ArticleService {
     ArticleRepositoryDAO articleRepositoryDAO = ArticleRepositoryDAO.getInstance();
+    UserRepositoryDAO userRepositoryDAO = UserRepositoryDAO.getInstance();
+    CategotyRepositoryDAO categotyRepositoryDAO = CategotyRepositoryDAO.getInstance();
 
     public void insertArticle(String title,String brief,String content)
     {

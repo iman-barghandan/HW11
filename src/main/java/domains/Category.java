@@ -14,7 +14,7 @@ public class Category {
     private String title;
     @Column(nullable = false)
     private String description;
-    @OneToMany(mappedBy = "article")
+    @OneToMany(cascade = CascadeType.ALL , orphanRemoval = true)
     private List<Article> articleList = new ArrayList<>();
 
     public Category() {

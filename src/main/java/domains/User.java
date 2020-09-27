@@ -18,7 +18,7 @@ public class User {
     @Temporal(TemporalType.DATE)
     @Column(nullable = false)
     private Date birthDay;
-    @OneToMany(mappedBy = "article")
+    @OneToMany(cascade = CascadeType.ALL , orphanRemoval = true)
     private List<Article> articleList = new ArrayList<>();
 
 

@@ -26,12 +26,17 @@ public class Article {
     private Date publishDate;
     @Column(nullable = false)
     private Boolean isPublished;
+
+
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "fk_user")
     private User user;
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "fk_category")
     private Category category;
+
+
+
 //    @ManyToMany
 //    @JoinTable(
 //            name = "article_tag",
@@ -106,19 +111,19 @@ public class Article {
         isPublished = published;
     }
 
-//    public User getUser() {
-//        return user;
-//    }
-//
-//    public void setUser(User user) {
-//        this.user = user;
-//    }
-//
-//    public Category getCategory() {
-//        return category;
-//    }
-//
-//    public void setCategory(Category category) {
-//        this.category = category;
-//    }
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
 }
