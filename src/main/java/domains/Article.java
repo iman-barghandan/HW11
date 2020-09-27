@@ -26,9 +26,9 @@ public class Article {
     private Date publishDate;
     @Column(nullable = false)
     private Boolean isPublished;
-//    @ManyToOne
-//    @JoinColumn(name = "fk_user")
-//    private User user;
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "fk_user")
+    private User user;
 //    @ManyToOne
 //    @JoinColumn(name = "fk_category")
 //    private Category category;
