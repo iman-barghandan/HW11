@@ -29,9 +29,9 @@ public class Article {
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "fk_user")
     private User user;
-//    @ManyToOne
-//    @JoinColumn(name = "fk_category")
-//    private Category category;
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "fk_category")
+    private Category category;
 //    @ManyToMany
 //    @JoinTable(
 //            name = "article_tag",

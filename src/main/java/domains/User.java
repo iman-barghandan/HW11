@@ -1,9 +1,7 @@
 package domains;
 
 import javax.persistence.*;
-import java.util.Date;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 
 @Entity
 public class User {
@@ -21,7 +19,7 @@ public class User {
     @Column(nullable = false)
     private Date birthDay;
     @OneToMany(mappedBy = "article")
-    private Set<Article> articles = new TreeSet<>();
+    private List<Article> articleList = new ArrayList<>();
 
 
     public User() {
@@ -67,11 +65,11 @@ public class User {
         this.birthDay = birthDay;
     }
 
-    public Set<Article> getArticles() {
-        return articles;
+    public List<Article> getArticleList() {
+        return articleList;
     }
 
-    public void setArticles(Set<Article> articles) {
-        this.articles = articles;
+    public void setArticleList(List<Article> articleList) {
+        this.articleList = articleList;
     }
 }
