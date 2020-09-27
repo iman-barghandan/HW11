@@ -1,5 +1,6 @@
 package controller;
 
+import domains.User;
 import scanner.ScannerClass;
 import services.UserService;
 
@@ -28,6 +29,12 @@ public class SignUpMenu {
         String zipCode = ScannerClass.getString();
 
         UserService userService = new UserService();
-        userService.signUpUser(userName,nationalCode,birthDay,country,city,street,zipCode);
+        User user = userService.signUpUser(userName,nationalCode,birthDay,country,city,street,zipCode);
+        long userId = userService.SignInUser(user.getUsername(),user.getPassword());
+        if (userId!=0)
+        {
+            UsersMenu.show(userId);
+        }
+
     }
 }

@@ -13,6 +13,11 @@ public class SignInMenu {
         String password = ScannerClass.getString();
 
         UserService userService = new UserService();
-        userService.SignInUser(userName,password);
+        long userId = userService.SignInUser(userName,password);
+        if (userId!=0)
+        {
+            UsersMenu.show(userId);
+        }
+
     }
 }

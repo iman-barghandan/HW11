@@ -25,8 +25,8 @@ public class UserService {
         address.setStreet(street);
         address.setZipCode(zipCode);
         user.setAddress(address);
-        userRepositoryDAO.save(user);
-        return user;
+        User savedUser = userRepositoryDAO.save(user);
+        return savedUser;
     }
 
     public long SignInUser(String userName , String password)

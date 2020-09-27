@@ -30,11 +30,11 @@ public class UserRepositoryDAO extends BaseRepositoryDAO<User, Long> {
         long id=0L;
         if (userList.size()>0)
         {
-            System.out.println("khoooooooooob");
+            System.out.println("welcome");
             id = userList.get(0).getId();
         }
         else {
-            System.out.println("noooooo");
+            System.out.println("You did not register");
         }
 
         entityManager.getTransaction().commit();
