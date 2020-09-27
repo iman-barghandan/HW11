@@ -8,7 +8,7 @@ import repositories.UserRepositoryDAO;
 public class UserService {
     UserRepositoryDAO userRepositoryDAO = UserRepositoryDAO.getInstance();
 
-    public void signUpUser(String userName,String nationalCode,String birthDay,
+    public User signUpUser(String userName,String nationalCode,String birthDay,
                            String country,String city,String street,String zipCode)
     {
         User user = new User();
@@ -26,5 +26,11 @@ public class UserService {
         address.setZipCode(zipCode);
         user.setAddress(address);
         userRepositoryDAO.save(user);
+        return user;
+    }
+
+    public long SignInUser(String userName , String password)
+    {
+        return userRepositoryDAO.selectByUserNameAndPassword(userName,password);
     }
 }
