@@ -11,7 +11,7 @@ public class Article {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false)
     private long id;
-    @Column(nullable = false, unique = true)
+    @Column(unique=true , nullable = false)
     private String title;
     @Column(nullable = false, columnDefinition = "text")
     private String brief;

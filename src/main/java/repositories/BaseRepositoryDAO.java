@@ -3,6 +3,8 @@ package repositories;
 import entityManagerFactory.EntityManagerRepository;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceException;
+import javax.persistence.RollbackException;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
@@ -28,10 +30,17 @@ public abstract class BaseRepositoryDAO<Entity,Id extends Number> {
         return entity;
     }
 
-    public Entity save(Entity entity){
+    public Entity save(Entity entity) {
+        try {
         entityManager.getTransaction().begin();
         entityManager.persist(entity);
         entityManager.getTransaction().commit();
+        System.out.println("ok");
+    }
+        catch (PersistenceException p)
+        {
+            System.out.println("The information entered is not valid");
+        }
         return entity;
     }
 

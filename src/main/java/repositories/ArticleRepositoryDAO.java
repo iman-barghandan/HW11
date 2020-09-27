@@ -14,6 +14,8 @@ public class ArticleRepositoryDAO extends BaseRepositoryDAO<Article,Long> {
         return articleRepositoryDAO;
     }
 
+
+
     @Override
     protected Class<Article> getEntityClass() {
         return Article.class;
