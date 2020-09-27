@@ -13,7 +13,7 @@ public class Role {
     @Column(nullable = false)
     private String title;
 
-    @OneToMany(cascade = CascadeType.ALL , orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     private List<User> userList = new ArrayList<>();
 
 
@@ -43,4 +43,6 @@ public class Role {
     public void setUserList(List<User> userList) {
         this.userList = userList;
     }
+
+
 }

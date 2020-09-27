@@ -8,12 +8,11 @@ public class EntityManagerRepository {
     private static final EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("my-persistence-unit");
     private static EntityManager entityManager;
 
-    private EntityManagerRepository() {}
+    private EntityManagerRepository() {
+    }
 
-    public static EntityManager getEntityManager()
-    {
-        if (entityManager==null)
-        {
+    public static EntityManager getEntityManager() {
+        if (entityManager == null) {
             entityManager = entityManagerFactory.createEntityManager();
         }
         return entityManager;

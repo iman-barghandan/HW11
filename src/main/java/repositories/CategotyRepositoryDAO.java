@@ -2,15 +2,15 @@ package repositories;
 
 import domains.Category;
 
-public class CategotyRepositoryDAO extends BaseRepositoryDAO<Category,Long> {
+public class CategotyRepositoryDAO extends BaseRepositoryDAO<Category, Long> {
 
     private static CategotyRepositoryDAO categotyRepositoryDAO;
-    private CategotyRepositoryDAO(){}
 
-    public static CategotyRepositoryDAO getInstance()
-    {
-        if (categotyRepositoryDAO==null)
-        {
+    private CategotyRepositoryDAO() {
+    }
+
+    public static CategotyRepositoryDAO getInstance() {
+        if (categotyRepositoryDAO == null) {
             categotyRepositoryDAO = new CategotyRepositoryDAO();
         }
         return categotyRepositoryDAO;

@@ -11,7 +11,7 @@ public class Article {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false)
     private long id;
-    @Column(unique=true , nullable = false)
+    @Column(unique = true, nullable = false)
     private String title;
     @Column(nullable = false, columnDefinition = "text")
     private String brief;
@@ -37,7 +37,7 @@ public class Article {
     @ManyToMany
     @JoinTable(
             name = "article_tag",
-            joinColumns = @JoinColumn(name = "fk_article",referencedColumnName = "id"),
+            joinColumns = @JoinColumn(name = "fk_article", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "fk_tag"))
     private List<Tag> tagList = new ArrayList<>();
 
@@ -139,4 +139,5 @@ public class Article {
     public void setTagList(List<Tag> tagList) {
         this.tagList = tagList;
     }
+
 }

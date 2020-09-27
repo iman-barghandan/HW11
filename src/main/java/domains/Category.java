@@ -14,7 +14,7 @@ public class Category {
     private String title;
     @Column(nullable = false)
     private String description;
-    @OneToMany(cascade = CascadeType.ALL , orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Article> articleList = new ArrayList<>();
 
     public Category() {
@@ -51,4 +51,6 @@ public class Category {
     public void setArticleList(List<Article> articleList) {
         this.articleList = articleList;
     }
+
+
 }

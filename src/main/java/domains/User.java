@@ -18,12 +18,12 @@ public class User {
     @Temporal(TemporalType.DATE)
     @Column(nullable = false)
     private Date birthDay;
-    @OneToMany(cascade = CascadeType.ALL , orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Article> articleList = new ArrayList<>();
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "fk_role")
     private Role role;
-    @OneToOne(cascade = CascadeType.ALL , orphanRemoval = true)
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "fk_address")
     private Address address;
 
@@ -86,4 +86,13 @@ public class User {
     public void setRole(Role role) {
         this.role = role;
     }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
 }
