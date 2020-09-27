@@ -34,15 +34,12 @@ public class Article {
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "fk_category")
     private Category category;
-
-
-
-//    @ManyToMany
-//    @JoinTable(
-//            name = "article_tag",
-//            joinColumns = @JoinColumn(name = "fk_article",referencedColumnName = "id"),
-//            inverseJoinColumns = @JoinColumn(name = "fk_tag"))
-//    private List<Tag> tagList = new ArrayList<>();
+    @ManyToMany
+    @JoinTable(
+            name = "article_tag",
+            joinColumns = @JoinColumn(name = "fk_article",referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "fk_tag"))
+    private List<Tag> tagList = new ArrayList<>();
 
     public Article() {
     }
@@ -125,5 +122,21 @@ public class Article {
 
     public void setCategory(Category category) {
         this.category = category;
+    }
+
+    public Boolean getPublished() {
+        return isPublished;
+    }
+
+    public void setPublished(Boolean published) {
+        isPublished = published;
+    }
+
+    public List<Tag> getTagList() {
+        return tagList;
+    }
+
+    public void setTagList(List<Tag> tagList) {
+        this.tagList = tagList;
     }
 }
