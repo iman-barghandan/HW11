@@ -21,6 +21,10 @@ public class User {
     @OneToMany(cascade = CascadeType.ALL , orphanRemoval = true)
     private List<Article> articleList = new ArrayList<>();
 
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "fk_role")
+    private Role role;
+
 
     public User() {
     }
@@ -71,5 +75,13 @@ public class User {
 
     public void setArticleList(List<Article> articleList) {
         this.articleList = articleList;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
     }
 }
