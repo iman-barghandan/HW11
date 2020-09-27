@@ -15,9 +15,8 @@ public class User {
     private String password;
     @Column(nullable = false, unique = true)
     private String nationalCode;
-    @Temporal(TemporalType.DATE)
     @Column(nullable = false)
-    private Date birthDay;
+    private String birthDay;
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Article> articleList = new ArrayList<>();
     @ManyToOne(cascade = CascadeType.PERSIST)
@@ -63,11 +62,11 @@ public class User {
         this.nationalCode = nationalCode;
     }
 
-    public Date getBirthDay() {
+    public String getBirthDay() {
         return birthDay;
     }
 
-    public void setBirthDay(Date birthDay) {
+    public void setBirthDay(String birthDay) {
         this.birthDay = birthDay;
     }
 

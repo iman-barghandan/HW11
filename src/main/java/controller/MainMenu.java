@@ -20,7 +20,7 @@ public class MainMenu {
             }
             else if (selectedNumber==2)
             {
-
+                SignUpMenu.showMenu();
             }
             else if (selectedNumber==3)
             {
