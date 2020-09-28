@@ -33,7 +33,7 @@ public abstract class BaseRepositoryDAO<Entity, Id extends Number> {
             entityManager.getTransaction().begin();
             entityManager.persist(entity);
             entityManager.getTransaction().commit();
-            System.out.println("ok");
+            System.out.println("Registration completed successfully");
         } catch (PersistenceException p) {
             System.out.println("The information entered is not valid");
         }

@@ -25,8 +25,7 @@ public class MainMenu {
             }
             else if (selectedNumber==3)
             {
-                ArticleService articleService = new ArticleService();
-                articleService.selectArticles();
+                ArticlesMenu.show();
             }
             else {
                 break;

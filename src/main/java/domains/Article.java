@@ -44,6 +44,7 @@ public class Article {
     public Article() {
     }
 
+
     public long getId() {
         return id;
     }
@@ -100,11 +101,11 @@ public class Article {
         this.publishDate = publishDate;
     }
 
-    public boolean isPublished() {
+    public Boolean getPublished() {
         return isPublished;
     }
 
-    public void setPublished(boolean published) {
+    public void setPublished(Boolean published) {
         isPublished = published;
     }
 
@@ -124,14 +125,6 @@ public class Article {
         this.category = category;
     }
 
-    public Boolean getPublished() {
-        return isPublished;
-    }
-
-    public void setPublished(Boolean published) {
-        isPublished = published;
-    }
-
     public List<Tag> getTagList() {
         return tagList;
     }
@@ -139,5 +132,4 @@ public class Article {
     public void setTagList(List<Tag> tagList) {
         this.tagList = tagList;
     }
-
 }
