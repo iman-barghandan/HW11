@@ -1,6 +1,7 @@
 package controller;
 
 import scanner.ScannerClass;
+import services.ArticleService;
 
 public class MainMenu {
     public static void showMenu()
@@ -24,7 +25,8 @@ public class MainMenu {
             }
             else if (selectedNumber==3)
             {
-
+                ArticleService articleService = new ArticleService();
+                articleService.selectArticles();
             }
             else {
                 break;
