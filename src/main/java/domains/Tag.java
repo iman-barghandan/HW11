@@ -11,6 +11,9 @@ public class Tag {
     @Column(nullable = false)
     private String title;
 
+    @ManyToOne()
+    @JoinColumn(nullable = false,name = "fk_article")
+    private Article article;
 
     public Tag() {
     }
@@ -31,5 +34,11 @@ public class Tag {
         this.title = title;
     }
 
+    public Article getArticle() {
+        return article;
+    }
 
+    public void setArticle(Article article) {
+        this.article = article;
+    }
 }

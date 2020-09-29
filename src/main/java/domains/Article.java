@@ -34,11 +34,8 @@ public class Article {
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(nullable = false,name = "fk_category")
     private Category category;
-    @ManyToMany
-    @JoinTable(
-            name = "article_tag",
-            joinColumns = @JoinColumn(name = "fk_article", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "fk_tag"))
+
+    @OneToMany(mappedBy = "article",cascade = CascadeType.ALL)
     private List<Tag> tagList = new ArrayList<>();
 
     public Article() {

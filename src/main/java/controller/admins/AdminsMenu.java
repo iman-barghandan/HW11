@@ -3,11 +3,13 @@ package controller.admins;
 import scanner.ScannerClass;
 import services.ArticleService;
 import services.CategoryService;
+import services.TagService;
 import services.UserService;
 
 public class AdminsMenu {
     public static void show()
     {
+        ArticleService articleService = new ArticleService();
         int selectedNumber;
         while (true)
         {
@@ -21,7 +23,7 @@ public class AdminsMenu {
 
             if (selectedNumber==1)
             {
-                ArticleService articleService = new ArticleService();
+
                 articleService.selectPublishedAndUnpublishedArticle();
 
                 System.out.println("input articleId: ");
@@ -31,7 +33,6 @@ public class AdminsMenu {
             }
             else if (selectedNumber==2)
             {
-                ArticleService articleService = new ArticleService();
                 articleService.selectPublishedAndUnpublishedArticle();
 
                 System.out.println("input articleId: ");
@@ -51,7 +52,15 @@ public class AdminsMenu {
             }
             else if (selectedNumber==4)
             {
+                articleService.selectPublishedAndUnpublishedArticle();
+                System.out.println("input articleId: ");
+                long articleId = ScannerClass.getNumber();
+                System.out.println("tag: ");
+                String tag = ScannerClass.getString();
 
+
+                TagService tagService = new TagService();
+                tagService.tagOnArticle(articleId,tag);
             }
             else if (selectedNumber==5)
             {
