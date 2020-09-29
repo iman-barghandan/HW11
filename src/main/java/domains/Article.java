@@ -29,10 +29,10 @@ public class Article {
 
 
     @ManyToOne(cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "fk_user")
+    @JoinColumn(nullable = false,name = "fk_user")
     private User user;
     @ManyToOne(cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "fk_category")
+    @JoinColumn(nullable = false,name = "fk_category")
     private Category category;
     @ManyToMany
     @JoinTable(

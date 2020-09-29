@@ -1,9 +1,9 @@
 package services;
 
-import domains.Address;
-import domains.Role;
-import domains.User;
+import domains.*;
 import repositories.UserRepositoryDAO;
+
+import java.util.List;
 
 public class UserService {
     UserRepositoryDAO userRepositoryDAO = UserRepositoryDAO.getInstance();
@@ -33,5 +33,35 @@ public class UserService {
     public long SignInUser(String userName , String password)
     {
         return userRepositoryDAO.selectByUserNameAndPassword(userName,password);
+    }
+
+    public void selectArticleByUserId(long userId)
+    {
+        User user = userRepositoryDAO.selectById(userId);
+        List<Article> articleList = user.getArticleList();
+        for (Article item : articleList)
+        {
+            System.out.println("Category: " + item.getCategory().getTitle());
+            System.out.println("Id: " + item.getId());
+            System.out.println("Title: " + item.getTitle());
+            System.out.println("Brief: " + item.getBrief());
+            System.out.println("Content: " +item.getContent());
+            System.out.println("CreateDate: " + item.getCreateDate());
+            System.out.println("is published: " + item.getPublished());
+
+//            System.out.println("PublishDate: " + item.getPublishDate());
+//            System.out.println("LastUpdateDate: "+ item.getLastUpdateDate());
+
+            List<Tag> listTag =  item.getTagList();
+            if (listTag.size()>0)
+            {
+                for (Tag t : listTag)
+                {
+                    System.out.println("Tag Id: " + t.getId());
+                    System.out.println("Tag Title: " + t.getTitle());
+                }
+            }
+            System.out.println("-------------------------");
+        }
     }
 }

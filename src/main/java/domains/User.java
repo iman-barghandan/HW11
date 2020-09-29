@@ -17,7 +17,7 @@ public class User {
     private String nationalCode;
     @Column(nullable = false)
     private String birthDay;
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Article> articleList = new ArrayList<>();
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "fk_role")
