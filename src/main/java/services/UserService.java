@@ -47,10 +47,10 @@ public class UserService {
             System.out.println("Brief: " + item.getBrief());
             System.out.println("Content: " +item.getContent());
             System.out.println("CreateDate: " + item.getCreateDate());
+            System.out.println("LastUpdateDate: " + item.getLastUpdateDate());
             System.out.println("is published: " + item.getPublished());
 
-//            System.out.println("PublishDate: " + item.getPublishDate());
-//            System.out.println("LastUpdateDate: "+ item.getLastUpdateDate());
+            System.out.println("PublishDate: " + item.getPublishDate());
 
             List<Tag> listTag =  item.getTagList();
             if (listTag.size()>0)

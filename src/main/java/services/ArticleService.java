@@ -37,7 +37,7 @@ public class ArticleService {
     public void selectById(long id)
     {
         Article article = articleRepositoryDAO.selectById(id);
-        if (article.getPublished())
+        if (article!= null && article.getPublished())
         {
             System.out.println("Category: " + article.getCategory().getTitle());
             System.out.println("Id: " + article.getId());
@@ -61,6 +61,7 @@ public class ArticleService {
             }
 
         }
+        else System.out.println("You do not have access to this article");
     }
 
     public void insertArticle(String title,String brief,String content,long categoryId,long userId)
@@ -72,11 +73,29 @@ public class ArticleService {
         article.setCreateDate(new Date());
         article.setPublished(false);
         Category category = categotyRepositoryDAO.selectById(categoryId);
-        article.setCategory(category);
-        article.setLastUpdateDate(new Date());
-        User user = userRepositoryDAO.selectById(userId);
-        article.setUser(user);
-        articleRepositoryDAO.save(article);
+        if (category!=null)
+        {
+            article.setCategory(category);
+            article.setLastUpdateDate(new Date());
+            User user = userRepositoryDAO.selectById(userId);
+            article.setUser(user);
+            articleRepositoryDAO.save(article);
+        }
+        else System.out.println("this category is not exist!");
+    }
+
+    public void editArticle(long userId,long articleId,String newTitle,String newBrief,String newContent)
+    {
+        Article article = articleRepositoryDAO.selectById(articleId);
+        if (article!= null && article.getUser().getId()==userId)
+        {
+            article.setTitle(newTitle);
+            article.setBrief(newBrief);
+            article.setContent(newContent);
+            article.setLastUpdateDate(new Date());
+            articleRepositoryDAO.update(article);
+        }
+        else System.out.println("you can not edit this article");
     }
 
 
