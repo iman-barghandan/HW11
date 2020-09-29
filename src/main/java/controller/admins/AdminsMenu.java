@@ -2,6 +2,7 @@ package controller.admins;
 
 import scanner.ScannerClass;
 import services.ArticleService;
+import services.CategoryService;
 import services.UserService;
 
 public class AdminsMenu {
@@ -30,11 +31,23 @@ public class AdminsMenu {
             }
             else if (selectedNumber==2)
             {
+                ArticleService articleService = new ArticleService();
+                articleService.selectPublishedAndUnpublishedArticle();
 
+                System.out.println("input articleId: ");
+                long articleId = ScannerClass.getNumber();
+
+                articleService.deleteArticleById(articleId);
             }
             else if (selectedNumber==3)
             {
-
+                CategoryService categoryService = new CategoryService();
+                categoryService.selectCategories();
+                System.out.println("title: ");
+                String title = ScannerClass.getString();
+                System.out.println("description: ");
+                String description = ScannerClass.getString();
+                categoryService.insertCategory(title,description);
             }
             else if (selectedNumber==4)
             {

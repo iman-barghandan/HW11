@@ -46,18 +46,19 @@ public abstract class BaseRepositoryDAO<Entity, Id extends Number> {
         entityManager.getTransaction().commit();
     }
 
-    public void removeById(Id id) throws Exception {
+    public void removeById(Id id){
         Entity entity = selectById(id);
-        if (entity == null) {
-            throw new Exception("this entity not exist");
+        if (entity!=null)
+        {
+            remove(entity);
+            System.out.println("entity was deleted");
         }
-        remove(entity);
+        else System.out.println("this entity not exist");
     }
 
-    public Entity update(Entity entity) {
+    public void update(Entity entity) {
         entityManager.getTransaction().begin();
-        Entity merge = entityManager.merge(entity);
+        entityManager.merge(entity);
         entityManager.getTransaction().commit();
-        return merge;
     }
 }

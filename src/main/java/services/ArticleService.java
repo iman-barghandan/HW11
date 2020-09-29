@@ -138,4 +138,9 @@ public class ArticleService {
         }
         else System.out.println("this article id is not exist");
     }
+
+    public void deleteArticleById(long articleId)
+    {
+        articleRepositoryDAO.removeById(articleId);
+    }
 }
