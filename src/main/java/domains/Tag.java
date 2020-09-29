@@ -11,7 +11,7 @@ public class Tag {
     @Column(nullable = false)
     private String title;
 
-    @ManyToOne()
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(nullable = false, name = "fk_article")
     private Article article;
 

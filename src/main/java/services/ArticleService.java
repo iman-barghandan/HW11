@@ -66,6 +66,7 @@ public class ArticleService {
                 for (Tag item : listTag) {
                     System.out.println("Tag Id: " + item.getId());
                     System.out.println("Tag Title: " + item.getTitle());
+                    System.out.println("####################");
                 }
             }
 

@@ -12,10 +12,11 @@ public class SignInMenu {
         String password = ScannerClass.getString();
 
         UserService userService = new UserService();
-        long userId = userService.SignInUser(userName, password);
+        long userId = userService.selectByUserNameAndPassword(userName, password);
         if (userId != 0) {
             UsersMenu.show(userId);
         }
+        else System.out.println("You did not register");
 
     }
 }

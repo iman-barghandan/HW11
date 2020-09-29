@@ -29,10 +29,10 @@ public class SignUpMenu {
 
         UserService userService = new UserService();
         User user = userService.signUpUser(userName, nationalCode, birthDay, country, city, street, zipCode);
-        long userId = userService.SignInUser(user.getUsername(), user.getPassword());
-        if (userId != 0) {
-            UsersMenu.show(userId);
-        }
+//        long userId = userService.selectByUserNameAndPassword(user.getUsername(), user.getPassword());
+//        if (userId != 0) {
+//            UsersMenu.show(userId);
+//        }
 
     }
 }

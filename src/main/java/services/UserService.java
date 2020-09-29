@@ -3,6 +3,7 @@ package services;
 import domains.*;
 import repositories.UserRepositoryDAO;
 
+import javax.persistence.Query;
 import java.util.Date;
 import java.util.List;
 
@@ -28,9 +29,24 @@ public class UserService {
         return userRepositoryDAO.save(user);
     }
 
-    public long SignInUser(String userName, String password) {
-        return userRepositoryDAO.selectByUserNameAndPassword(userName, password);
+    public long selectByUserNameAndPassword(String userName, String password) {
+        List<User> userList = userRepositoryDAO.selectAll();
+        long id = 0L;
+        if (userList.size() > 0)
+        {
+            for (User item : userList)
+            {
+                if (item.getUsername().equals(userName) && item.getPassword().equals(password))
+                {
+                    System.out.println("welcome");
+                    id = item.getId();
+                }
+            }
+        }
+        return id;
     }
+
+
 
 
     public void selectAllUsers() {
@@ -63,6 +79,7 @@ public class UserService {
                 for (Tag t : listTag) {
                     System.out.println("Tag Id: " + t.getId());
                     System.out.println("Tag Title: " + t.getTitle());
+                    System.out.println("##############");
                 }
             }
             System.out.println("-------------------------");
