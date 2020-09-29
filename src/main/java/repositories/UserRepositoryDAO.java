@@ -20,20 +20,17 @@ public class UserRepositoryDAO extends BaseRepositoryDAO<User, Long> {
         return userRepositoryDAO;
     }
 
-    public long selectByUserNameAndPassword(String userName , String password)
-    {
+    public long selectByUserNameAndPassword(String userName, String password) {
         entityManager.getTransaction().begin();
         Query query = entityManager.createQuery("select entity from User entity where entity.username=:userName and entity.password=:password");
-        query.setParameter("userName",userName);
-        query.setParameter("password",password);
+        query.setParameter("userName", userName);
+        query.setParameter("password", password);
         List<User> userList = query.getResultList();
-        long id=0L;
-        if (userList.size()>0)
-        {
+        long id = 0L;
+        if (userList.size() > 0) {
             System.out.println("welcome");
             id = userList.get(0).getId();
-        }
-        else {
+        } else {
             System.out.println("You did not register");
         }
 

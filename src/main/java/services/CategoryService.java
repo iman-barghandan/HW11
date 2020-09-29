@@ -11,8 +11,7 @@ public class CategoryService {
 
     public int selectCategories() {
         List<Category> categoryList = categotyRepositoryDAO.selectAll();
-        if (categoryList.size() > 0)
-        {
+        if (categoryList.size() > 0) {
             for (Category item : categoryList) {
 
                 System.out.println("Category Id: " + item.getId());
@@ -21,14 +20,12 @@ public class CategoryService {
                 System.out.println("--------------");
 
             }
-        }
-        else System.out.println("No categories created yet");
+        } else System.out.println("No categories created yet");
         return categoryList.size();
     }
 
 
-    public void insertCategory(String title,String description)
-    {
+    public void insertCategory(String title, String description) {
         Category category = new Category();
         category.setTitle(title);
         category.setDescription(description);

@@ -46,14 +46,12 @@ public abstract class BaseRepositoryDAO<Entity, Id extends Number> {
         entityManager.getTransaction().commit();
     }
 
-    public void removeById(Id id){
+    public void removeById(Id id) {
         Entity entity = selectById(id);
-        if (entity!=null)
-        {
+        if (entity != null) {
             remove(entity);
             System.out.println("entity was deleted");
-        }
-        else System.out.println("this entity not exist");
+        } else System.out.println("this entity not exist");
     }
 
     public void update(Entity entity) {

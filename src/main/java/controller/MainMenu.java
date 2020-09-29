@@ -4,30 +4,22 @@ import scanner.ScannerClass;
 import services.ArticleService;
 
 public class MainMenu {
-    public static void showMenu()
-    {
+    public static void showMenu() {
         int selectedNumber;
-        while (true)
-        {
+        while (true) {
             System.out.println("(1) Sign-In\n" +
                     "(2) Sign-Up\n" +
                     "(3) Articles\n" +
                     "(4) End program");
-            selectedNumber = ScannerClass.getNumber(1,4);
+            selectedNumber = ScannerClass.getNumber(1, 4);
 
-            if (selectedNumber==1)
-            {
+            if (selectedNumber == 1) {
                 SignInMenu.show();
-            }
-            else if (selectedNumber==2)
-            {
+            } else if (selectedNumber == 2) {
                 SignUpMenu.showMenu();
-            }
-            else if (selectedNumber==3)
-            {
+            } else if (selectedNumber == 3) {
                 ArticlesMenu.show();
-            }
-            else {
+            } else {
                 break;
             }
         }

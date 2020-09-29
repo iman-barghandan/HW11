@@ -12,7 +12,7 @@ public class Tag {
     private String title;
 
     @ManyToOne()
-    @JoinColumn(nullable = false,name = "fk_article")
+    @JoinColumn(nullable = false, name = "fk_article")
     private Article article;
 
     public Tag() {

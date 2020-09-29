@@ -5,8 +5,7 @@ import services.ArticleService;
 import services.UserService;
 
 public class ArticleEditingClass {
-    public static void show(long userId)
-    {
+    public static void show(long userId) {
         UserService userService = new UserService();
         userService.selectArticleByUserId(userId);
 
@@ -17,16 +16,12 @@ public class ArticleEditingClass {
         String newTitle = ScannerClass.getString();
 
         System.out.println("input new Brief: ");
-        String newBrief= ScannerClass.getString();
+        String newBrief = ScannerClass.getString();
 
         System.out.println("input new Content: ");
         String newContent = ScannerClass.getString();
 
         ArticleService articleService = new ArticleService();
-        articleService.editArticle(userId,articleId,newTitle,newBrief,newContent);
-
-
-
-
+        articleService.editArticle(userId, articleId, newTitle, newBrief, newContent);
     }
 }

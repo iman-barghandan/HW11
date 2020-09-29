@@ -5,8 +5,7 @@ import scanner.ScannerClass;
 import services.UserService;
 
 public class SignUpMenu {
-    public static void showMenu()
-    {
+    public static void showMenu() {
         System.out.println("userName: ");
         String userName = ScannerClass.getString();
 
@@ -29,10 +28,9 @@ public class SignUpMenu {
         String zipCode = ScannerClass.getString();
 
         UserService userService = new UserService();
-        User user = userService.signUpUser(userName,nationalCode,birthDay,country,city,street,zipCode);
-        long userId = userService.SignInUser(user.getUsername(),user.getPassword());
-        if (userId!=0)
-        {
+        User user = userService.signUpUser(userName, nationalCode, birthDay, country, city, street, zipCode);
+        long userId = userService.SignInUser(user.getUsername(), user.getPassword());
+        if (userId != 0) {
             UsersMenu.show(userId);
         }
 

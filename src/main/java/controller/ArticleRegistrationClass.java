@@ -5,12 +5,10 @@ import services.ArticleService;
 import services.CategoryService;
 
 public class ArticleRegistrationClass {
-    public static void show(long userId)
-    {
+    public static void show(long userId) {
         CategoryService categoryService = new CategoryService();
         int numberCategory = categoryService.selectCategories();
-        if (numberCategory>0)
-        {
+        if (numberCategory > 0) {
             System.out.println("input Category id: ");
             long categoryId = ScannerClass.getNumber();
 
@@ -24,7 +22,7 @@ public class ArticleRegistrationClass {
             String content = ScannerClass.getString();
 
             ArticleService articleService = new ArticleService();
-            articleService.insertArticle(title,brief,content,categoryId,userId);
+            articleService.insertArticle(title, brief, content, categoryId, userId);
         }
 
     }

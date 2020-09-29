@@ -4,8 +4,7 @@ import scanner.ScannerClass;
 import services.UserService;
 
 public class SignInMenu {
-    public static void show()
-    {
+    public static void show() {
         System.out.println("userName: ");
         String userName = ScannerClass.getString();
 
@@ -13,9 +12,8 @@ public class SignInMenu {
         String password = ScannerClass.getString();
 
         UserService userService = new UserService();
-        long userId = userService.SignInUser(userName,password);
-        if (userId!=0)
-        {
+        long userId = userService.SignInUser(userName, password);
+        if (userId != 0) {
             UsersMenu.show(userId);
         }
 
