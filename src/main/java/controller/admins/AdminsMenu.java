@@ -1,6 +1,7 @@
 package controller.admins;
 
 import scanner.ScannerClass;
+import services.ArticleService;
 import services.UserService;
 
 public class AdminsMenu {
@@ -19,7 +20,13 @@ public class AdminsMenu {
 
             if (selectedNumber==1)
             {
+                ArticleService articleService = new ArticleService();
+                articleService.selectPublishedAndUnpublishedArticle();
 
+                System.out.println("input articleId: ");
+                long articleId = ScannerClass.getNumber();
+
+                articleService.changePublishedArticle(articleId);
             }
             else if (selectedNumber==2)
             {

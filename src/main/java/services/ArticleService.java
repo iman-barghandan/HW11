@@ -32,6 +32,28 @@ public class ArticleService {
                 }
             }
         }
+        else System.out.println("No article has been published yet");
+    }
+
+
+    public void selectPublishedAndUnpublishedArticle()
+    {
+        List<Article> articleList = articleRepositoryDAO.selectAll();
+        if (articleList.size()>0)
+        {
+            for (Article item : articleList)
+            {
+                System.out.println("Category: " + item.getCategory().getTitle());
+                System.out.println("Id: " + item.getId());
+                System.out.println("Title: " + item.getTitle());
+                System.out.println("Brief: " +item.getBrief());
+                System.out.println("Publish State: " + item.getPublished());
+                System.out.println("PublishDate: " + item.getPublishDate());
+                System.out.println("--------------");
+            }
+        }
+        else System.out.println("No article has been published yet");
+
     }
 
     public void selectById(long id)
@@ -98,5 +120,22 @@ public class ArticleService {
         else System.out.println("you can not edit this article");
     }
 
-
+    public void changePublishedArticle(long articleId)
+    {
+        Article article = articleRepositoryDAO.selectById(articleId);
+        if (article!=null)
+        {
+            if (article.getPublished())
+            {
+                article.setPublished(false);
+            }
+            else {
+                article.setPublished(true);
+            }
+            article.setPublishDate(new Date());
+            articleRepositoryDAO.update(article);
+            System.out.println("Done! " + article.getTitle() + " changed publish");
+        }
+        else System.out.println("this article id is not exist");
+    }
 }
