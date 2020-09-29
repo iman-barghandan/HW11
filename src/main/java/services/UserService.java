@@ -3,6 +3,7 @@ package services;
 import domains.*;
 import repositories.UserRepositoryDAO;
 
+import java.util.Date;
 import java.util.List;
 
 public class UserService {
@@ -25,14 +26,26 @@ public class UserService {
         address.setStreet(street);
         address.setZipCode(zipCode);
         user.setAddress(address);
-//        User savedUser = userRepositoryDAO.save(user);
-//        return savedUser;
         return userRepositoryDAO.save(user);
     }
 
     public long SignInUser(String userName , String password)
     {
         return userRepositoryDAO.selectByUserNameAndPassword(userName,password);
+    }
+
+
+
+    public void selectAllUsers()
+    {
+        List<User> userList = userRepositoryDAO.selectAll();
+        for (User item : userList)
+        {
+            System.out.println("userId: " + item.getId());
+            System.out.println("username: " + item.getUsername());
+            System.out.println("Role: " + item.getRole().getTitle());
+            System.out.println("-----------------");
+        }
     }
 
     public void selectArticleByUserId(long userId)
@@ -63,5 +76,35 @@ public class UserService {
             }
             System.out.println("-------------------------");
         }
+    }
+
+    public void editPassword(long userId,String newPassword)
+    {
+        User user = userRepositoryDAO.selectById(userId);
+        if (user!=null)
+        {
+            user.setPassword(newPassword);
+            userRepositoryDAO.update(user);
+            System.out.println("Done, your new password is : " + newPassword);
+        }
+        else System.out.println("this user not exist");
+    }
+
+    public User selectUserById(long userId)
+    {
+       return userRepositoryDAO.selectById(userId);
+    }
+
+    public void changeRole(long userId,String newRoleTitle)
+    {
+        User user = userRepositoryDAO.selectById(userId);
+        if (user!=null)
+        {
+            Role role = new Role();
+            role.setTitle(newRoleTitle);
+            user.setRole(role);
+            System.out.println("Done, " + user.getUsername() + " now is a admin");
+        }
+        else System.out.println("this id user not exist");
     }
 }
